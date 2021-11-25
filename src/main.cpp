@@ -6,20 +6,24 @@
   Version    : 0.0.1
 */
 
-#define DEBUG               // Si definie la console aura des message de debeugage
-
-#include <Arduino.h>
+#include "Arduino.h"
 #include "blink.h"
 
 #define LED_PIN LED_BUILTIN // Definition comme preprocesseur pour faciliter le changement du pin
-#define BLINK_TIME  250     // Le temps entre ON et OFF
+#define BLINK_TIME  1250     // Le temps entre ON et OFF
 
 void setup() {
 
-	Serial.begin(9600);       // Configuration frequence de sortie 
+	Serial.begin(115200);       // Configuration frequence de sortie 
+	while (!Serial) {}        // Attendre la connexion du moniteur serie
+	
 	pinMode(LED_PIN, OUTPUT); // Configuration du PIN LED integré comme sortie
 	#ifdef DEBUG
-		Serial.print("PIN %d est configuré comme sortie\n");
+		Serial.print("\n");
+	#endif
+	#ifdef DEBUG
+		Serial.print(LED_PIN);
+		Serial.print(" est configuré comme port de sortie\n");
 	#endif
 
 }
