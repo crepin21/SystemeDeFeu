@@ -6,16 +6,21 @@
  */
 void blink(int pin, int temp){
 	// Block on
+	String msg;
 	digitalWrite(pin, HIGH);
 	delay(temp);
 	#ifdef DEBUG
-		Serial.printf("LED sur le PIN %d est on\n", pin);
+		msg = "LED sur le PIN " + pin;
+		msg += " est on";
+		Serial.println(msg);
 	#endif
 
 	// Block off
 	digitalWrite(pin, LOW);
 	delay(temp);
 	#ifdef DEBUG
-		Serial.printf("LED sur le PIN %d est off\n", pin);
+		msg = "LED sur le PIN " + pin;
+		msg += " est off";
+		Serial.println(msg);
 	#endif
 }

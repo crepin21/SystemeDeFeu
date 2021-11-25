@@ -19,14 +19,14 @@ void setup() {
 	Serial.begin(9600);       // Configuration frequence de sortie 
 	pinMode(LED_PIN, OUTPUT); // Configuration du PIN LED integré comme sortie
 	#ifdef DEBUG
-		Serial.printf("PIN %d est configuré comme sortie\n", LED_PIN);
+		Serial.print("PIN %d est configuré comme sortie\n");
 	#endif
 
 }
 
 void loop() {
 
-	// Appel de notre fonctionblink dans notre fichier entete blink.h
+	// Appel de notre fonction blink dans notre fichier entete blink.h
 	blink(LED_PIN, BLINK_TIME);
 
 }
