@@ -15,13 +15,12 @@
 void setup() {
 
 	Serial.begin(115200);       // Configuration frequence de sortie 
-	while (!Serial) {}        // Attendre la connexion du moniteur serie
-	
+
 	pinMode(LED_PIN, OUTPUT); // Configuration du PIN LED integré comme sortie
+
 	#ifdef DEBUG
+		while (!Serial) {}        // Attendre la connexion du moniteur serie
 		Serial.print("\n");
-	#endif
-	#ifdef DEBUG
 		Serial.print(LED_PIN);
 		Serial.print(" est configuré comme port de sortie\n");
 	#endif
